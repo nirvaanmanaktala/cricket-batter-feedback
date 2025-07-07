@@ -17,7 +17,6 @@ This project uses computer vision and Google Gemini AI to analyze a cricket bats
 ## 📦 Installation & Setup
 
 ### 1. Clone the repository
-```bash
 git clone https://github.com/YOUR_USERNAME/cricket-batsman-feedback.git
 cd cricket-batsman-feedback
 2. Install dependencies
