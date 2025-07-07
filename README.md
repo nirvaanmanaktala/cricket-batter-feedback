@@ -1,6 +1,7 @@
-# Cricket Batting Analyzer – Real-Time AI Coaching using Gemini, YOLO, and MediaPipe
+# Cricket Batting Analyzer – Real-Time AI Coaching using Gemini, YOLO, and MediaPipe - Nirvaan Manaktala
 
 This project analyzes a batsman's cricket shot using MediaPipe for pose tracking, YOLOv8 for ball detection, and Google Gemini AI for generating coaching feedback. It runs in real time using your webcam and shows suggestions based on balance, bat swing, footwork, and timing.
+
 
 ## Features
 
