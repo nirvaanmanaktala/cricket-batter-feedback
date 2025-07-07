@@ -7,13 +7,13 @@ from ultralytics import YOLO
 from dotenv import load_dotenv
 import os
 
-# Gemini API setup
+# Load Gemini API key from .env
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
 
-# YOLO model for ball detection (can be customized with cricket-trained YOLO)
+# YOLOv8 model for ball detection
 yolo_model = YOLO("yolov8n.pt")
 
 def detect_ball(frame):
@@ -45,13 +45,12 @@ You are a cricket coach. Analyze the following sequence of joint and ball positi
 Sequence:
 {pose_text}
 
-Give short, specific feedback (maximum 2 sentences).
+Give short, specific feedback (maximum 2 sentences). Suggest one actionable improvement for better performance.
 """
-
     response = model.generate_content(prompt)
     return response.text
 
-# Pose estimation setup
+# Pose setup
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 mp_drawing = mp.solutions.drawing_utils
@@ -72,7 +71,6 @@ def extract_keypoints(landmarks):
         "right_ankle": mp_pose.PoseLandmark.RIGHT_ANKLE,
         "nose": mp_pose.PoseLandmark.NOSE
     }
-
     keypoints = {}
     for name, index in important_joints.items():
         landmark = landmarks[index]
@@ -83,13 +81,13 @@ def is_bat_swing_motion(pose_seq):
     if len(pose_seq) < 10:
         return False
     wrist_x = [pose["right_wrist"][0] for pose in pose_seq]
-    min_wrist_x = min(wrist_x)
-    max_wrist_x = max(wrist_x)
-    return abs(max_wrist_x - min_wrist_x) > 0.2
+    return max(wrist_x) - min(wrist_x) > 0.2
 
+# Video setup
 cap = cv2.VideoCapture(0)
 pose_buffer = []
 feedback_displayed = False
+feedback_time = 0
 
 print("Starting webcam. Press 'q' to quit.")
 
@@ -115,12 +113,11 @@ while cap.isOpened():
             keypoints["ball"] = norm_ball
 
         pose_buffer.append(keypoints)
-
         if len(pose_buffer) > 20:
             pose_buffer.pop(0)
 
         if is_bat_swing_motion(pose_buffer) and not feedback_displayed:
-            print("Bat swing detected. Sending to Gemini.")
+            print("Bat swing detected. Sending to Gemini...")
             feedback = generate_feedback(pose_buffer)
             print("Gemini Feedback:\n", feedback)
             feedback_displayed = True
@@ -158,17 +155,16 @@ while cap.isOpened():
             y_pos = y + i * line_height
             cv2.putText(frame, line, (x, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 2)
 
-    if feedback_displayed and time.time() - feedback_time < 5:
+    if feedback_displayed and time.time() - feedback_time < 12:
         draw_feedback(frame, feedback)
-    elif feedback_displayed and time.time() - feedback_time >= 5:
+    elif feedback_displayed and time.time() - feedback_time >= 12:
         feedback_displayed = False
         pose_buffer = []
 
-    cv2.putText(frame, "Cricket Batting Analyzer", (10, frame.shape[0] - 10),
+    cv2.putText(frame, "🏏 Cricket Batting Analyzer", (10, frame.shape[0] - 10),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 200, 255), 2)
 
     cv2.imshow("Cricket Batting Analyzer", frame)
-
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
