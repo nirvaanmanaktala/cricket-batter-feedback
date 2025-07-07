@@ -7,13 +7,13 @@ from ultralytics import YOLO
 from dotenv import load_dotenv
 import os
 
-# Load Gemini API key from .env
+#gemini API key from .env
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
 
-# YOLOv8 model for ball detection
+#YOLOv8 model for ball detection
 yolo_model = YOLO("yolov8n.pt")
 
 def detect_ball(frame):
