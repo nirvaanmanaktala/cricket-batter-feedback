@@ -2,7 +2,6 @@
 
 This project analyzes a batsman's cricket shot using **MediaPipe** for pose tracking, **YOLOv8** for ball detection, and **Google Gemini AI** for generating coaching feedback. It runs in real time using your webcam and shows suggestions based on balance, bat swing, footwork, and timing.
 
----
 
 ## Features
 
@@ -16,7 +15,6 @@ This project analyzes a batsman's cricket shot using **MediaPipe** for pose trac
   - Release and impact timing
 - Detects swing and automatically displays improvement tips.
 
----
 
 ## Requirements
 
@@ -24,7 +22,6 @@ This project analyzes a batsman's cricket shot using **MediaPipe** for pose trac
 - A working webcam
 - macOS (not tested on windows and linux)
 
----
 
 ## Installation
 
@@ -71,8 +68,15 @@ GEMINI_API_KEY=your-api-key-here
 ```
 .env
 ```
+5. ## Download YOLOv8 Model
 
----
+This project uses the YOLOv8 Nano model. Download it from:
+
+[https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt)
+
+Place `yolov8n.pt` in the same folder as `main.py`.
+
+
 
 ## Running the App
 
@@ -87,7 +91,6 @@ python main.py
 
 Press `q` to exit the application.
 
----
 
 ## Project Structure
 
@@ -101,7 +104,6 @@ cricket-batting-analyzer/
 └── README.md
 ```
 
----
 
 ## Notes
 
@@ -110,7 +112,6 @@ cricket-batting-analyzer/
 - Currently assumes a right-handed batsman — easily extendable with condition checks.
 - Special thanks to @rohtumm for inspiring this project
 
----
 
 ## License
 
