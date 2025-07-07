@@ -45,12 +45,6 @@ source venv/bin/activate
 pip install opencv-python mediapipe google-generativeai python-dotenv ultralytics
 ```
 
-If you want, generate a `requirements.txt` with:
-
-```bash
-pip freeze > requirements.txt
-```
-
 ---
 
 ## Setup `.env` file for Gemini API
