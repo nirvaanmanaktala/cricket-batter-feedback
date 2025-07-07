@@ -33,7 +33,7 @@ source venv/bin/activate
 ```bash
 pip install opencv-python mediapipe google-generativeai python-dotenv ultralytics
 ```
-## Setup `.env` file for Gemini API
+## Setup .env file for Gemini API
 1. Go to [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 2. Copy your Gemini API key
 3. Create a file called `.env` in the project root folder and add-
