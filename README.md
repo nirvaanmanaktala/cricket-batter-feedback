@@ -32,7 +32,7 @@ git clone https://github.com/yourusername/cricket-batting-analyzer.git
 cd cricket-batting-analyzer
 ```
 
-### 2.(OR)Create a virtual environment(venv)
+### 2.create a virtual environment/venv if 1. doesnt work
 
 ```bash
 python3.10 -m venv venv
