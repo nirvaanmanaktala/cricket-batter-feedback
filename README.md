@@ -24,7 +24,7 @@ This project analyzes a batsman's cricket shot using MediaPipe for pose tracking
 
 
 ## Installation
-
+Instructions are given in reference to macOS
 ### 1.Clone this:
 
 ```bash
@@ -36,7 +36,7 @@ cd cricket-batting-analyzer
 
 ```bash
 python3.10 -m venv venv
-source venv/bin/activate      # On Windows: venv\Scripts\activate
+source venv/bin/activate    
 ```
 
 ### 3.Install dependencies
