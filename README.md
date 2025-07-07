@@ -39,7 +39,7 @@ pip install opencv-python mediapipe google-generativeai python-dotenv ultralytic
 2. Copy your Gemini API key
 3. Create a file called `.env` in the project root folder and add-
 ```
-GEMINI_API_KEY=your-api-key-here
+GEMINI_API_KEY=api_key(do not share)
 ```
 4. ## Download YOLOv8 Model
 
