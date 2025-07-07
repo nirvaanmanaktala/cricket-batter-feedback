@@ -14,35 +14,35 @@ This project analyzes a batsman's cricket shot using **MediaPipe** for pose trac
   - Foot movement
   - Bat lift and follow-through
   - Release and impact timing
-- Detects swing and automatically displays improvement tips
+- Detects swing and automatically displays improvement tips.
 
 ---
 
 ## Requirements
 
-- Python 3.10 recommended (MediaPipe may not work with Python 3.12)
+- Python 3.10 recommended (MediaPipe may not work with python 3.12)
 - A working webcam
-- macOS / Windows / Linux
+- macOS (not tested on windows and linux)
 
 ---
 
 ## Installation
 
-### 1. Clone this repository
+### 1.Clone this:
 
 ```bash
 git clone https://github.com/yourusername/cricket-batting-analyzer.git
 cd cricket-batting-analyzer
 ```
 
-### 2. (Optional) Create a virtual environment
+### 2.(OR)Create a virtual environment(venv)
 
 ```bash
 python3.10 -m venv venv
 source venv/bin/activate      # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+### 3.Install dependencies
 
 ```bash
 pip install opencv-python mediapipe google-generativeai python-dotenv ultralytics
@@ -60,7 +60,7 @@ pip freeze > requirements.txt
 
 1. Go to [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 2. Copy your Gemini API key
-3. Create a file called `.env` in the project root folder and add:
+3. Create a file called `.env` in the project root folder and add-
 
 ```
 GEMINI_API_KEY=your-api-key-here
