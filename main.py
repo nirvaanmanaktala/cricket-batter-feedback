@@ -15,7 +15,7 @@ model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
 
 #YOLOv8 model for ball detection
 yolo_model = YOLO("yolov8n.pt")
-
+#funcs setup
 def detect_ball(frame):
     results = yolo_model.predict(source=frame, verbose=False)[0]
     for box in results.boxes:
@@ -34,7 +34,7 @@ def generate_feedback(pose_sequence):
         pose_text += f"Frame {i+1}: " + ", ".join([
             f"{name}({round(x,2)}, {round(y,2)})" for name, (x, y) in pose.items()
         ]) + "\n"
-
+#geminiprompt
     prompt = f"""
 You are a cricket coach. Analyze the following sequence of joint and ball positions from a batsman's shot.
 
