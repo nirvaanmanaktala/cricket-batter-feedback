@@ -4,7 +4,7 @@ This project analyzes a batsman's cricket shot using MediaPipe for pose tracking
 Currently only functional for right handers
 ## Features
 
-- Real-time pose tracking using MediaPipe
+- The project offers real-time pose tracking using MediaPipe
 - Cricket ball detection using YOLOv8
 - AI-generated coaching tips using Gemini 2.0 Flash
 - Feedback includes:
