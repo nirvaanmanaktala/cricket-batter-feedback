@@ -50,7 +50,7 @@ Give short, specific feedback (maximum 2 sentences). Suggest one actionable impr
     response = model.generate_content(prompt)
     return response.text
 
-# Pose setup
+#Pose setup
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose()
 mp_drawing = mp.solutions.drawing_utils
@@ -83,7 +83,7 @@ def is_bat_swing_motion(pose_seq):
     wrist_x = [pose["right_wrist"][0] for pose in pose_seq]
     return max(wrist_x) - min(wrist_x) > 0.2
 
-# Video setup
+#Video
 cap = cv2.VideoCapture(0)
 pose_buffer = []
 feedback_displayed = False
