@@ -161,7 +161,7 @@ while cap.isOpened():
         feedback_displayed = False
         pose_buffer = []
 
-    cv2.putText(frame, "🏏 Cricket Batting Analyzer", (10, frame.shape[0] - 10),
+    cv2.putText(frame, "Cricket Batting Analyzer", (10, frame.shape[0] - 10),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 200, 255), 2)
 
     cv2.imshow("Cricket Batting Analyzer", frame)
