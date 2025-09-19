@@ -71,7 +71,6 @@ cricket-batting-analyzer/
 - Make sure you place the `yolov8n.pt` file in the same directory as `main.py`.
 - You can use a custom YOLO model trained for cricket balls if needed.
 - Assumes a right-handed batsman for now
-- Special thanks to @rohtumm for inspiring this project
 
 
 ## License
